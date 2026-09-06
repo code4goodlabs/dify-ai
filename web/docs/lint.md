@@ -59,12 +59,6 @@ Tailwind canonical class cleanup is optional because loading the JavaScript plug
 
 The non-code baseline and its repository-wide file scope live in `eslint.config.mjs`. ESLint checks JSON, JSONC, JSON5, YAML, TOML, and Markdown only. The configuration globally ignores JavaScript, JSX, TypeScript, TSX, and declaration files; a comment-only inventory records the removed code checks as a migration tradeoff. It does not import or depend on the Antfu ESLint config.
 
-### Auto-fix Workflow
-
-Configure the Oxc and ESLint editor extensions to apply their respective fixes on save. The commit hook runs `vp staged`, which delegates staged files to `vp check --fix` and adds the ESLint fallback for non-code files. The autofix workflow uses the same combined Vite+ check.
-
-Always review automatic fixes before committing. JS plugins are allowed to provide fixes, and their behavior is not necessarily identical to a native Oxlint rule.
-
 ### Type-aware Linting
 
 The root configuration enables both `typeAware` and `typeCheck`, so `vp check` runs type-aware rules and full diagnostics through the repository's `@typescript/native` compiler.
